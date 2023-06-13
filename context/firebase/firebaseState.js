@@ -6,6 +6,8 @@ import FirebaseContext from "./firebaseContext";
 
 import { OBTENER_PRODUCTOS_EXITO } from "../../types";
 
+import _ from 'lodash';
+
 const FirebaseState = props => {
 
 
@@ -30,6 +32,10 @@ const FirebaseState = props => {
                         ...doc.data()
                     }
                 });
+
+                //Ordenas por categoria con lodash
+                platillos = _.sortBy(platillos, 'categoria');
+                // console.log(platillos);
 
                 //console.log(platillos);
                 // Tenemos resultados de a base de datos
